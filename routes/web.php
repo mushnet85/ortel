@@ -11,9 +11,14 @@
 |
 */
 
+//splash page
 Route::get('/', function () {
     return view('welcome');
 });
+
+//transaction routes
+Route::Resource('transaction', 'TransactionController');
+
 
 Auth::routes();
 
