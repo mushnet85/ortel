@@ -19,6 +19,9 @@ Route::get('/', function () {
 //transaction routes
 Route::Resource('transaction', 'TransactionController');
 
+//user routes
+Route::Resource('user', 'UserController');
+
 
 Auth::routes();
 

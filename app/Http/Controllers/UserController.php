@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TransactionController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -12,8 +12,8 @@ class TransactionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {    
-        return view('transactions.index');
+    {
+        return view('users.index');
     }
 
     /**
@@ -23,7 +23,7 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        return view('transactions.create');
+        //
     }
 
     /**
