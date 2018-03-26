@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Handset_model\Handset;
-
-class TransactionController extends Controller
+class HandsetController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +12,8 @@ class TransactionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {    
-        return view('transactions.index');
+    {
+        //
     }
 
     /**
@@ -25,11 +23,7 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        $handset = new Handset;
-
-        $handsets = $handset->FetchAllHandsets();
-
-        return view('transactions.create')->with (compact ('handsets'));
+        //
     }
 
     /**

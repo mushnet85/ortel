@@ -22,6 +22,8 @@ Route::Resource('transaction', 'TransactionController');
 //user routes
 Route::Resource('user', 'UserController');
 
+//handset routes
+Route::Resource('handset', 'HandsetController');
 
 Auth::routes();
 

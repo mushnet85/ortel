@@ -13,9 +13,9 @@ class CreateHandsetPricesTable extends Migration
      */
     public function up()
     {
-        Schema::create('handset__prices', function (Blueprint $table) {
+        Schema::create('handset_prices', function (Blueprint $table) {
             $table->increments('id');
-            $table->increments('handset_id');
+            $table->integer('handset_id');
             $table->date('effective_from');
             $table->date('effective_to');
             $table->decimal('handset_price', 10,2);            

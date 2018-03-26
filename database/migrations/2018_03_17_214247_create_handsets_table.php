@@ -16,11 +16,10 @@ class CreateHandsetsTable extends Migration
         Schema::create('handsets', function (Blueprint $table) {
             $table->increments('id');
             $table->char('manufacturer');
-            $table->char('model');
             $table->char('memory');
             $table->char('model');
             $table->char('color');
-            $table->int('product_code');      
+            $table->integer('product_code');      
             $table->char('type');
             $table->timestamps();
         });
