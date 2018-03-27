@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Handset_model\Handset;
+use App\HandsetModel\HandsetRepo;
+
+
 
 class TransactionController extends Controller
 {
@@ -25,11 +27,11 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        $handset = new Handset;
+        $handset = new HandsetRepo;
 
-        $handsets = $handset->FetchAllHandsets();
-
-        return view('transactions.create')->with (compact ('handsets'));
+        $handsets = $handset->HandsetSelectData();
+       
+        return view('transactions.create',compact('handsets'));
     }
 
     /**

@@ -2,7 +2,8 @@
 
 @section('content')
 
-        {{dd($handsets)}}
+     
+      
         <div style="margin-bottom: 2%;" class="row justify-content-md-left">
         <h2>Add Transaction</h2>
         </div>
@@ -17,7 +18,7 @@
             <div class="form-group row">                                
                     {{Form::label('device', 'Device', ['class' => 'col-sm-2 col-form-label'])}}                 
                     <div class="col"> 
-                    {{Form::select('device',['M' => 'Mobile', 'T' => 'Tablet'], null , ['class' => 'col-sm-3 custom-select', 'placeholder' => 'Select Device'])}}
+                    {{Form::select('device',$handsets, null , ['class' => 'col-sm-3 custom-select', 'placeholder' => 'Select Device'])}}
                 </div> 
             </div>         
             <div class="form-group row">                                
@@ -56,7 +57,7 @@
                     {{Form::select('return_type',['return' => 'Return', 'exchange' => 'Exchange'], null , ['class' => 'col-sm-3 custom-select', 'placeholder' => 'Return or Exchange'])}}
                 </div> 
             </div>
-                                                                                                        
+                                                                                                
         {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}  
         {!! Form::close() !!}
    
