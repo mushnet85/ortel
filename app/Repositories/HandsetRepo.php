@@ -1,20 +1,19 @@
 <?php
 
-namespace App\HandsetModel;
+namespace App\Repositories;
 
-use App\HandsetModel\Handset;
+use App\Models\Handset;
 
 class HandsetRepo
 {
 
     protected $handsetModel;
 
-    protected $handset;
 
-    public function __construct()
+    public function __construct(Handset $handset)
     {
 
-        $this->handsetModel = new Handset;
+        $this->handsetModel = $handset;
 
     }
 

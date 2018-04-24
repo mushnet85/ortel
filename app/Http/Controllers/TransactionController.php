@@ -4,12 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\HandsetModel\HandsetRepo;
+use App\Repositories\HandsetRepo;
 
 
 
 class TransactionController extends Controller
 {
+
+    private $handset;
+
+    public function __construct(HandsetRepo $handsetrepo)
+    {
+        $this->middleware('auth');
+        $this->handset = $handsetrepo;
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -27,9 +37,8 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        $handset = new HandsetRepo;
-
-        $handsets = $handset->HandsetSelectData();
+       
+        $handsets = $this->handset->HandsetSelectData();
        
         return view('transactions.create',compact('handsets'));
     }

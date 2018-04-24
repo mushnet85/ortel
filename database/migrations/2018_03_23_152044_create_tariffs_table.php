@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTarriffsTable extends Migration
+class CreateTariffsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTarriffsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tarriffs', function (Blueprint $table) {
+        Schema::create('tariffs', function (Blueprint $table) {
             $table->increments('id');
             $table->char('product_description');
             $table->decimal('mrc', 10,2);
@@ -37,6 +37,6 @@ class CreateTarriffsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tarriffs');
+        Schema::dropIfExists('tariffs');
     }
 }

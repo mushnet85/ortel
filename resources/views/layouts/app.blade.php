@@ -62,7 +62,8 @@
 
         <main class="py-4">
             <div class="container">
-            @yield('content')
+                @include('messages.messages')       
+            @yield('content')          
             </div>
         </main>
     </div>

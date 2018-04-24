@@ -8,7 +8,6 @@
         <div class="row">
                 <div class="col-md-auto" align="center">
                 <a href="/user"><i class="fa fa-address-book fa-5x" name="user" aria-hidden="true"></i></a>
-            
                 <h4>Users</h4>         
                 </div>             
                 <div class="col-md-auto" align="center">

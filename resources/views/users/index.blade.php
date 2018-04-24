@@ -7,12 +7,10 @@
         </div>    
         <div class="row">
                 <div class="col-md-auto">
-                        <i class="fa fa-user-plus fa-4x" aria-hidden="true"></i>                                             
+                        <a href="/user/create"><i class="fa fa-user-plus fa-4x" aria-hidden="true"></i></a>                                             
                 </div>
                 <div class="col-md-auto">
                         <i class="fa fa-users fa-4x" aria-hidden="true"></i>
-                </div>            
-        </div>
-            
-            
+                </div>                                             
+        </div>           
 @endsection

@@ -56,8 +56,7 @@
                     <div class="col"> 
                     {{Form::select('return_type',['return' => 'Return', 'exchange' => 'Exchange'], null , ['class' => 'col-sm-3 custom-select', 'placeholder' => 'Return or Exchange'])}}
                 </div> 
-            </div>
-                                                                                                
+            </div>                                                                                                
         {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}  
         {!! Form::close() !!}
    

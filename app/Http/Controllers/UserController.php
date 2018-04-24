@@ -4,8 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Repositories\RoleRepo;
+use App\Repositories\UserRepo;
+use App\Repositories\StoreRepo;
+
 class UserController extends Controller
 {
+
+    protected $roleModel;
+    protected $userModel;
+    protected $storeModel;
+
+    public function __construct(RoleRepo $roles, UserRepo $users, StoreRepo $stores)
+    {
+        $this->middleware('auth');
+
+        $this->roleModel = $roles;
+        $this->userModel = $users;
+        $this->storeModel = $stores;
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +42,11 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $roles = $this->roleModel->RolesSelectData();
+
+        $stores = $this->storeModel->StoreSelectData();
+
+        return view('users.create', compact('roles', 'stores'));
     }
 
     /**
@@ -34,7 +57,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'first_name' => 'required|max:50|unique:users',
+            'last_name' => 'required|max:50|unique:users',
+            'email' => 'required|email|unique:users',
+            'home_store' => 'required',
+            'role' => 'required',
+            'contact_no' => 'required|numeric',
+            'password' => 'required',
+            'password_confirmation' => 'required|same:password'
+        ]);
+
+        $users = $this->userModel;
+       
+        $users->SaveUser($request);
+
+        return redirect('/user')->with('success', 'Employee Added') ;
+
+        
     }
 
     /**
