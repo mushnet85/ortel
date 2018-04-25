@@ -6,9 +6,11 @@
         <h2>Users</h2>
         </div>    
         <div class="row">
+                @can('create', App\Models\User::class)
                 <div class="col-md-auto">
                         <a href="/user/create"><i class="fa fa-user-plus fa-4x" aria-hidden="true"></i></a>                                             
                 </div>
+                @endcan
                 <div class="col-md-auto">
                         <i class="fa fa-users fa-4x" aria-hidden="true"></i>
                 </div>                                             

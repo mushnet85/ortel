@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Repositories\RoleRepo;
 use App\Repositories\UserRepo;
 use App\Repositories\StoreRepo;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -14,10 +16,13 @@ class UserController extends Controller
     protected $roleModel;
     protected $userModel;
     protected $storeModel;
+    protected $user;
 
     public function __construct(RoleRepo $roles, UserRepo $users, StoreRepo $stores)
     {
+      
         $this->middleware('auth');
+
 
         $this->roleModel = $roles;
         $this->userModel = $users;
@@ -42,11 +47,18 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = $this->roleModel->RolesSelectData();
+        $user = Auth::user();
 
-        $stores = $this->storeModel->StoreSelectData();
-
-        return view('users.create', compact('roles', 'stores'));
+        if ($user->can('create', User::class)) {
+            
+            $roles = $this->roleModel->RolesSelectData();
+            $stores = $this->storeModel->StoreSelectData();
+            return view('users.create', compact('roles', 'stores'));
+          } 
+          else 
+          {
+            abort(500);
+          }  
     }
 
     /**
@@ -72,9 +84,7 @@ class UserController extends Controller
        
         $users->SaveUser($request);
 
-        return redirect('/user')->with('success', 'Employee Added') ;
-
-        
+        return redirect('/user')->with('success', 'Employee Added') ;        
     }
 
     /**

@@ -37,4 +37,21 @@ class User extends Authenticatable
     {      
     return $this->belongsToMany(Store::class);
     }
+
+    public function CheckRoles($roles, $id)
+    {
+     
+        $user = User::find($id);
+       
+        foreach ($user->roles as $role)
+        {   
+            if ($role->name == $roles)
+            {
+                return true;
+            }
+        }
+
+        return false;
+}
+
 }
