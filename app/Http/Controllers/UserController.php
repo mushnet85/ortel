@@ -37,7 +37,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users.index');
+        $users = $this->userModel->GetAllUsers();
+
+        //dd($users);
+
+        return view('users.index')->with('users', $users);
     }
 
     /**
@@ -53,7 +57,7 @@ class UserController extends Controller
             
             $roles = $this->roleModel->RolesSelectData();
             $stores = $this->storeModel->StoreSelectData();
-            return view('users.create', compact('roles', 'stores'));
+            return view('users.create', compact('stores'));
           } 
           else 
           {

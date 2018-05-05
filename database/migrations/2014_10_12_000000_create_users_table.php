@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->integer('sys_deleted')->default(0);
+            $table->date('effective_from');
+            $table->date('effective_to');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -16,6 +16,18 @@ class UserRepo
 
     }
 
+    public function GetAllUsers()
+    {
+
+        $users = User::with(['roles:id,name','stores:id,store'],['stores' => function($query)
+        {
+         $query->where('home_store','=',1);   
+        }
+        ])->where('sys_deleted','=',0)->get();
+
+        return $users;
+    }
+
     public function SaveUser($data)
     {
         //dump($data);

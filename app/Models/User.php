@@ -38,6 +38,12 @@ class User extends Authenticatable
     return $this->belongsToMany(Store::class);
     }
 
+    public function timecards()
+    {
+      return $this->hasMany(Timecard::class);   
+    }
+
+    
     public function CheckRoles($roles, $id)
     {
      
