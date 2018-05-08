@@ -25,6 +25,8 @@ Route::Resource('user', 'UserController');
 //handset routes
 Route::Resource('handset', 'HandsetController');
 
+Route::post('/timecard/store', 'TimecardsController@store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

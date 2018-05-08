@@ -39,5 +39,7 @@
                 </div>                          
               </div>
             </div>
-            <dialog-box></dialog-box>   
+            
+            <dialog-box></dialog-box>
+              
 @endsection

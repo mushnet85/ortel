@@ -1,8 +1,6 @@
 
 <template>
     <div>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirmClockInModal">Clock in</button>
-
         <!-- Modal -->
         <div class="modal fade" id="confirmClockInModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -34,15 +32,13 @@ export default {
 
     }),
 
-    methods: {
-  
+    methods: {  
             saveClockInTime() {
-            axios.post('clock-ins')
+            axios.post('/TimecardsController/store')
                 .then(response => {
                     console.log('logged clock in');
                 });
-        }
-        
+        }        
     }
 }
 </script>
